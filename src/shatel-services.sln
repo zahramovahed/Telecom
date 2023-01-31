@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{CDC4E788-D655-4F4B-8B7B-854DFAF8029F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Telecom", "Telecom", "{4960BA74-EC3E-4013-A203-B3F25F272E7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecom.API", "Services\Telecom\Telecom.API\Telecom.API.csproj", "{66D33623-1C35-417A-9D19-0639532592D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66D33623-1C35-417A-9D19-0639532592D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D33623-1C35-417A-9D19-0639532592D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D33623-1C35-417A-9D19-0639532592D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D33623-1C35-417A-9D19-0639532592D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4960BA74-EC3E-4013-A203-B3F25F272E7B} = {CDC4E788-D655-4F4B-8B7B-854DFAF8029F}
+		{66D33623-1C35-417A-9D19-0639532592D2} = {4960BA74-EC3E-4013-A203-B3F25F272E7B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07ACF479-5E65-41CC-B08C-5613240AF0BE}
+	EndGlobalSection
+EndGlobal
