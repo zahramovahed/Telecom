@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\services",
-    "\\src\\services\\Telecom"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\services",
+  "SelectedNode": "\\src\\shatel-services.sln",
   "PreviewInSolutionExplorer": false
 }

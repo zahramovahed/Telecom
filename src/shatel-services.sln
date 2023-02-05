@@ -7,7 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{CD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Telecom", "Telecom", "{4960BA74-EC3E-4013-A203-B3F25F272E7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telecom.API", "Services\Telecom\Telecom.API\Telecom.API.csproj", "{66D33623-1C35-417A-9D19-0639532592D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telecom.API", "Services\Telecom\Telecom.API\Telecom.API.csproj", "{66D33623-1C35-417A-9D19-0639532592D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{996412A4-37C1-47DD-916A-CB48C8B8600A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

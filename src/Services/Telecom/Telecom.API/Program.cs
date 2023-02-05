@@ -1,10 +1,27 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.OpenApi.Models;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Mapping.ByCode;
+using System.Configuration;
+using System.Reflection;
+using Telecom.API.Data;
+using Telecom.API.Entities;
+using Telecom.API.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+builder.Services.AddControllers();
+builder.Services.AddScoped<ITelecomContext, TelecomContext>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddSingleton<NHibernate.ISession>(ISession => NhibernateConfig.AddHibernateConfig(builder.Configuration));
+builder.Services.AddSwaggerGen(option =>
+{
+    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Telecom.API", Version = "v1" });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -13,29 +30,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseRouting();
 
-var summaries = new[]
+app.UseAuthorization();
+app.UseEndpoints(endpoints =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateTime.Now.AddDays(index),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
+    endpoints.MapControllers();
+});
+app.UseHttpsRedirection();
 app.Run();
 
-internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
