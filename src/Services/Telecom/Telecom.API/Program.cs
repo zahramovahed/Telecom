@@ -5,18 +5,19 @@ using NHibernate.Cfg;
 using NHibernate.Mapping.ByCode;
 using System.Configuration;
 using System.Reflection;
+using System.Text.Json.Serialization;
 using Telecom.API.Data;
 using Telecom.API.Entities;
 using Telecom.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options=>options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddScoped<ITelecomContext, TelecomContext>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IContractRepository, ContractRepository>();
 builder.Services.AddSingleton<NHibernate.ISession>(ISession => NhibernateConfig.AddHibernateConfig(builder.Configuration));
 builder.Services.AddSwaggerGen(option =>
 {
